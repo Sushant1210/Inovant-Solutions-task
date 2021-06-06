@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="230dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:layout_margin="10dp"
+    android:id="@+id/items_Cardview"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:id="@+id/background_color"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="0dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/dress_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add" />
+
+            <ImageView
+                android:id="@+id/imgWishList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="visible"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_heart" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvBrandName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:text="Zara"
+            android:textColor="@color/colorDescText"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/tvDressName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:text="Zara"
+            android:textColor="@color/colorDressName"
+            android:textSize="15sp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="0dp"/>
+
+        <LinearLayout
+            android:id="@+id/llAmounts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="11"
+            app:layout_constraintTop_toBottomOf="@+id/tvDressName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/tvCurrencyCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KD"
+                android:gravity="right"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="5"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/colorDescText"></TextView>
+
+            <TextView
+                android:id="@+id/tvFinalAmt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="65.00"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:textColor="@color/colorDescText"></TextView>
+
+            <TextView
+                android:id="@+id/tvRegularAmt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="85.00"
+                android:textColor="@color/colorRegPrice"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textSize="15sp"
+                ></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

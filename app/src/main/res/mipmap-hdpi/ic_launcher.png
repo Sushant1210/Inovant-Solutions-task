@@ -1,0 +1,44 @@
+package com.infra.boiupi.Utils;
+
+
+import android.content.Context;
+import android.net.Uri;
+
+import com.infra.boiupi.Payment.Models.QRModel;
+
+
+//Version 1.7.2(V04)
+public class QRParser implements CustomDialogClick {
+
+    public String qrString; //qr string after scan
+    private QRModel qrModel; //don't assign qrmodel to it from external
+    private Context context;
+    private CustomDialogClick customDialogClick;
+
+
+    public QRParser(Context ctx) {
+        qrModel =  new QRModel();
+        customDialogClick = this;
+
+        context = ctx;
+    }
+
+    public QRModel parseQrString(String uriObj, boolean isQRFromGallery){
+        uriObj = uriObj.replaceAll("%20", " ");
+        uriObj = uriObj.replaceAll("%", " ");
+        Uri temp = Uri.parse(uriObj);
+
+        //Common
+        qrModel.setVersion(mandatoryValidation(nullified(temp.getQueryParameter("ver"))));// Mandatory,  QR Version.
+        qrModel.setMode(mandatoryValidation(nullified(temp.getQueryParameter("mode")))); //Mandatory 01 = Static QR Code (Offline) 02 = Static Secure QR Code (Offline) 04 = Intent 05 = Secure Intent 06 = NFC(Near field communication) 07= BLE (Bluetooth) 08= UHF (ultra-high frequency) 13= Static Secure QR Mandate (Offline) 14= Restricted 15= Dynamic QR Code (Offline) 16= Dynamic Secure QR Code (Offline) 17= Dynamic Secure QR Mandate (Offline) 18= ATMQR (Dynamic) 19 = Online STATIC QR Code 20 = Online STATIC Secure QR Code 21 = Online Static QR Mandate 22 = Online Dynamic QR Code 23 = Online Dynamic Secure QR Code 24= Online Dynamic Secure QR Code Mandate.
+        qrModel.setPurpose(nullified(temp.getQueryParameter("purpose")));//conditional, default 00 01 – SEBI 02 - AMC 03 - Travel 04 – Hospitality 05 - Hospital 06 - Telecom 07- Insurance 08 - Education 09 - Gifting 10 - BBPS 11- Global UPI 12 - Metro ATM QR 13 - Non-metro ATM QR 14 – SI 15 – Corporate disbursement
+        qrModel.setOrgid(validator(nullified(temp.getQueryParameter("orgid")),6,12));// conditional, validation 6-12 char, Org Id of the acquiring bank/ PSP
+        qrModel.setTransactionId(validator(nullified(temp.getQueryParameter("tid")),35,35));//optional, validation 35 char, Transactions ID must be PSP Generated.
+        qrModel.setReferenceNo(mandatoryValidation(validator(nullified(temp.getQueryParameter("tr")),1,35)));//Mandatory for Dynamic, validation max 35 char Transactions reference no.
+        qrModel.setRemark(validator(nullified(temp.getQueryParameter("tn")),0,50));//Optional Validation Max 50 Transaction Note
+        qrModel.setCategory(nullified(temp.getQueryParameter("catagory"))); //Mandatory in case of URL Present, 01-Advertisement 02- Invoice
+        qrModel.setUrl(validator(nullified(temp.getQueryParameter("url")),0,99));// Optional, Validation Max 99 char , Transaction related URL like Invoice.
+        qrModel.setPaymentAddress(mandatoryValidation(validationForVPA(nullified(temp.getQueryParameter("pa")))));// Mandatory Validation Max 255 Char, UPI Payment Address
+        qrModel.setName(validator(mandatoryValidation(nullified(temp.getQueryParameter("pn"))),1,99));// Mandatory Validation Max 99, Payee Name
+        qrModel.setMerchantCode(mandatoryValidation(validator(nullified(temp.getQueryParameter("mc")),4,4)));// Mandatory Validation 4 digit num, Payee Merchant Code default 0000
+        qrModel.setAmount(nullified(temp.getQueryParameter("am")));//Optional Validation 2 digit after decimal, Transaction Amount, If ‘am’ is not present (static) or If ‘mam’ is populated and ‘am’ value is non-zero (dynamic) the

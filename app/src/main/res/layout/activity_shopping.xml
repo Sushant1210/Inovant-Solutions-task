@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            tools:context=".Activities.ShoppingActivity">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_layout"
+                android:visibility="visible"></include>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorRegPrice"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <com.example.inovantsolutionstask.Utils.AutoScrollViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                app:ci_drawable="@drawable/ic_selected"
+                app:ci_drawable_unselected="@drawable/ic_rec"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+
+            <LinearLayout
+                android:id="@+id/viewPagerCountDots"
+                android:layout_width="200dp"
+                android:layout_height="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+
+            <TextView
+                android:id="@+id/tvBrandName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:text="Zara"
+                android:textColor="@color/colorDescText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/indicator" />
+
+
+            <TextView
+                android:id="@+id/tvDressName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:text="Long Dress For Women"
+                android:textColor="@color/colorDressName"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBrandName" />
+
+            <LinearLayout
+                android:id="@+id/llAmounts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                android:weightSum="11"
+                app:layout_constraintTop_toBottomOf="@+id/tvDressName">
+
+                <TextView
+                    android:id="@+id/tvCurrencyCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="right"
+                    android:text="KD"
+                    android:textColor="@color/colorDescText"
+                    android:textSize="16sp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/tvFinalAmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:gravity="center"
+                    android:text="65.00"
+                    android:textColor="@color/colorDescText"
+                    android:textSize="16sp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/tvRegularAmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="left"
+                    android:text="85.00"
+                    android:textColor="@color/colorRegPrice"
+                    android:textSize="16sp"></TextView>
+
+            </LinearLayout>
+
+            <com.example.inovantsolutionstask.Utils.AutoCompleteDropDown
+                android:id="@+id/spnColor"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:hint="@string/str_selectcolor"
+                android:inputType="textNoSuggestions|textMultiLine"
+                android:maxLines="3"
+                android:textColor="@color/colorShareText"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/spnSize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llAmounts" />
+
+            <com.example.inovantsolutionstask.Utils.AutoCompleteDropDown
+                android:id="@+id/spnSize"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:hint="@string/str_selectsize"
+                android:inputType="textNoSuggestions|textMultiLine"
+                android:maxLines="3"
+                android:textColor="@color/colorShareText"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/spnColor"
+                app:layout_constraintTop_toBottomOf="@+id/llAmounts"></com.example.inovantsolutionstask.Utils.AutoCompleteDropDown>
+
+            <LinearLayout
+                android:id="@+id/llWishShare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spnSize">
+
+                <Button
+                    android:id="@+id/btnWish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_weight="5"
+                    android:background="@drawable/button_background"
+                    android:drawableLeft="@drawable/ic_heart"
+                    android:gravity="center"
+                    android:paddingLeft="30dip"
+                    android:paddingRight="50dip"
+                    android:text="@string/str_wishlist"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorShareText"
+                    android:textSize="14sp"></Button>
+
+                <Button
+                    android:id="@+id/btnShare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_weight="5"
+                    android:background="@drawable/button_background"
+                    android:drawableLeft="@drawable/ic_upload"
+                    android:gravity="center"
+                    android:paddingLeft="50dip"
+                    android:paddingRight="50dip"
+                    android:text="@string/str_share"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorShareText"
+                    android:textSize="14sp"></Button>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llDiscription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llWishShare">
+
+                <LinearLayout
+                    android:id="@+id/llDisc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvdesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.9"
+                        android:text="@string/str_description"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorDescText"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/ivDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/ic_add"></ImageView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvdescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Description"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="#e5e5e5" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llComposition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llDiscription">
+
+                <LinearLayout
+                    android:id="@+id/llCompo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvComp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.9"
+                        android:text="@string/str_composition"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorDescText"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/ivComp0sition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/ic_add"></ImageView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvComposition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Description"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="#e5e5e5" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llBlockId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                app:layout_constraintTop_toBottomOf="@+id/llComposition">
+
+                <TextView
+                    android:id="@+id/tvShopId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="right"
+                    android:text="BLOCK 49"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorShareText"
+                    android:textSize="14sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tvShopNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:text="ID:0324"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorShareText"
+                    android:textSize="14sp"></TextView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:text="@string/str_more"
+                android:textAllCaps="true"
+                android:textColor="@color/colorDescText"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llBlockId" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvMore"></androidx.recyclerview.widget.RecyclerView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnAddToBag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="5"
+        android:background="@drawable/btn_background_with_corner"
+        android:gravity="center"
+        android:text="@string/str_add"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></Button>
+</androidx.constraintlayout.widget.ConstraintLayout>

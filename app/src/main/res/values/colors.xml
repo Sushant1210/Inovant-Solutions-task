@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="colorBorder">#bab7bb</color>
+    <color name="colorText">#302736</color>
+    <color name="colorSelectedDot">#d8bc8b</color>
+    <color name="colorDressName">#52575a</color>
+    <color name="colorPlus">#422238</color>
+    <color name="colorRegPrice">#9b9b9b</color>
+    <color name="colorShareText">#9c9c9c</color>
+    <color name="colorDescText">#412137</color>
+    <color name="colorBorder1">#dedfde</color>
+</resources>

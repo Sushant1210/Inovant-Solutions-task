@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Inovant Solutions Task</string>
+    <string name="str_welcome">Welocome To Inovant Solutions</string>
+    <string name="str_innovate">Let us Innovate Your shopping Experience......</string>
+    <string name="str_wishlist">WISHLIST</string>
+    <string name="str_wishlisted">WISHLISTED</string>
+    <string name="str_select_color">Please select Color of the Product</string>
+    <string name="str_select_size">Please select Size of the Product</string>
+    <string name="str_error">Some error occurred. Please check your internet</string>
+    <string name="str_no_data">No Data Available</string>
+    <string name="str_close">Closing Application !</string>
+    <string name="str_close_confirmatoion">Are you sure you want to exit this application ?</string>
+    <string name="str_yes">Yes</string>
+    <string name="str_no">No</string>
+    <string name="str_selectcolor">Select Color</string>
+    <string name="str_selectsize">Select Size</string>
+    <string name="str_share">Share</string>
+    <string name="str_description">Description</string>
+    <string name="str_composition">Composition and Care</string>
+    <string name="str_more">More From Zara</string>
+    <string name="str_add">add to bag</string>
+    <string name="str_already_added">You have already added this item in your bag.</string>
+</resources>
